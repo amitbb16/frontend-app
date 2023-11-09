@@ -47,14 +47,14 @@ stages:
     - task: Kubernetes@1
       inputs:
         connectionType: 'Kubernetes Service Connection'
-        kubernetesServiceEndpoint: 'gke-dev-clusters'
+        kubernetesServiceEndpoint: 'project-dev'
         namespace: dev
         command: apply
         arguments: -f  k8s/deployment/
     - task: Kubernetes@1
       inputs:
         connectionType: 'Kubernetes Service Connection'
-        kubernetesServiceEndpoint: 'gke-dev-clusters'
+        kubernetesServiceEndpoint: 'project-dev'
         namespace: dev
         command: set
         arguments: image deployment/frontend frontend=amitbb16/frontendproject:$(tag)

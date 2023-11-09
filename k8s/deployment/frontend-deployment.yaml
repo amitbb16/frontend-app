@@ -19,11 +19,11 @@ spec:
     metadata:
       labels:
         app: frontend                                 # 6
-    # spec:
-    #   volumes:
-    #     - name: datastore
-    #       persistentVolumeClaim:
-    #         claimName: frontend-fast-replicated
+    spec:
+      # volumes:
+      #   - name: datastore
+      #     persistentVolumeClaim:
+      #       claimName: frontend-fast-replicated
       containers:
         - image: amitbb16/frontend-app:27
           imagePullPolicy: IfNotPresent                         # 7

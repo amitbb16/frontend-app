@@ -18,18 +18,19 @@ spec:
   template:
     metadata:
       labels:
-        app: frontend                                  # 6
+        app: frontend                                 # 6
     # spec:
     #   volumes:
     #     - name: datastore
     #       persistentVolumeClaim:
     #         claimName: frontend-fast-replicated
       containers:
-        - image: amitbb16/frontendproject:13
+        - image: amitbb16/frontend-app:27
           imagePullPolicy: IfNotPresent                         # 7
           name: frontend
           ports:
             - containerPort: 80
+            
           # volumeMounts:
           #   - mountPath: /var/lib/sql
           #     name: datastore

@@ -33,7 +33,7 @@ stages:
       displayName: Build an image
       inputs:
         command: buildAndPush
-        containerRegistry: docker.io
+        containerRegistry: Container Repo
         repository: amitbb16/frontend-app
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |

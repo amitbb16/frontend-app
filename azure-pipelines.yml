@@ -58,3 +58,4 @@ stages:
     #     namespace: dev
     #     command: set
     #     arguments: image deployment/frontend frontend=amitbb16/frontendproject:$(tag)
+system.debug: true

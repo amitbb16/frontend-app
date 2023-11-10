@@ -12,7 +12,7 @@ variables:
   tag: '$(Build.BuildId)'
 
 pool:
-  vmimage: windows-2019
+  vmimage: windows-2022
 
 stages:
 # - stage: npmbuild

@@ -10,10 +10,9 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  system.debug: 'true'
 
 pool:
-  vmimage: windows-2022
+  vmimage: ubuntu-latest
 
 stages:
 # - stage: npmbuild

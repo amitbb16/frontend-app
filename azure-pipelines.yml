@@ -15,29 +15,29 @@ pool:
   vmimage: ubuntu-latest
 
 stages:
-- stage: npmbuild
-  displayName: Create build folder using npm
-  jobs:
-    - job: npmbuild
-      displayName: Create build folder using npm
-      steps:
-      - script: npm install
-      - script: npm run build
-- stage: Build
-  displayName: Build image
-  jobs:
-  - job: Build
-    displayName: Build
-    steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: buildAndPush
-        containerRegistry: Container Repo
-        repository: amitbb16/frontend-app
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
+# - stage: npmbuild
+#   displayName: Create build folder using npm
+#   jobs:
+#     - job: npmbuild
+#       displayName: Create build folder using npm
+#       steps:
+#       - script: npm install
+#       - script: npm run build
+# - stage: Build
+#   displayName: Build image
+#   jobs:
+#   - job: Build
+#     displayName: Build
+#     steps:
+#     - task: Docker@2
+#       displayName: Build an image
+#       inputs:
+#         command: buildAndPush
+#         containerRegistry: Container Repo
+#         repository: amitbb16/frontend-app
+#         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+#         tags: |
+#           $(tag)
 - stage: Deploy
   displayName: Deploy to GKE Cluster
   jobs:
@@ -51,10 +51,10 @@ stages:
         namespace: dev
         command: apply
         arguments: -f  k8s/deployment/
-    - task: Kubernetes@1
-      inputs:
-        connectionType: 'Kubernetes Service Connection'
-        kubernetesServiceEndpoint: 'project-dev'
-        namespace: dev
-        command: set
-        arguments: image deployment/frontend frontend=amitbb16/frontendproject:$(tag)
+    # - task: Kubernetes@1
+    #   inputs:
+    #     connectionType: 'Kubernetes Service Connection'
+    #     kubernetesServiceEndpoint: 'project-dev'
+    #     namespace: dev
+    #     command: set
+    #     arguments: image deployment/frontend frontend=amitbb16/frontendproject:$(tag)

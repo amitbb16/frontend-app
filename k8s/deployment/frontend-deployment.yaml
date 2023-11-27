@@ -25,7 +25,7 @@ spec:
       #     persistentVolumeClaim:
       #       claimName: frontend-fast-replicated
       containers:
-        - image: amitbb16/frontend-app:27
+        - image: amitbb16/frontend-app:32
           imagePullPolicy: IfNotPresent                         # 7
           name: frontend
           ports:
@@ -57,3 +57,4 @@ spec:
           #       configMapKeyRef:
           #         name: db-configs
           #         key: database_name
+   

@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - 104.154.107.150.sslip.io
-    secretName:  104.154.107.150.sslip.io
+    - 34.31.98.205.sslip.io
+    secretName:  34.31.98.205.sslip.io
   rules:
-  - host: 104.154.107.150.sslip.io
+  - host: 34.31.98.205.sslip.io
     http:
       paths:
       - path: /

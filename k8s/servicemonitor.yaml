@@ -1,18 +1,26 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: postgres-monitor
+  name: mysql-monitor
   # Change this to the namespace the Prometheus instance is running in
   namespace: default
   labels:
-    app: postgres
+    app: mysql
     release: prometheus
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: mysql-1
+    app.kubernetes.io/name: mysql
+    app.kubernetes.io/part-of: prometheus-operated
+    app.kubernetes.io/version: 0.26.0
 spec:
   selector:
     matchLabels:
-      app: postgres 
+      app: mysql
+      release: prometheus
+      app.kubernetes.io/component: database
+      app.kubernetes.io/instance: mysql-1
+      app.kubernetes.io/name: mysql
+      app.kubernetes.io/part-of: prometheus-operated
   endpoints:
   - port: metrics
     interval: 30s
-
-
